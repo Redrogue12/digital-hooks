@@ -20,10 +20,8 @@ function Activities() {
 
   return (
     <>
-      <Typography.Title level={5}>Activity</Typography.Title>
-      <Typography.Paragraph type="secondary">
-        Duis venenatis mauris sed purus convallis maximus. Phasellus ac justo
-        suscipit,{' '}
+      <Typography.Title level={5}>Payouts</Typography.Title>
+      <Typography.Paragraph type="secondary">Deposits should be reflected on bank account{' '}
       </Typography.Paragraph>
       <Table
         size="small"

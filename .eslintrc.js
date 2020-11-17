@@ -1,3 +1,5 @@
+const { off } = require("react-use/lib/util");
+
 module.exports = {
   env: {
     browser: true,
@@ -28,5 +30,6 @@ module.exports = {
     'global-require': 'off',
     'implicit-arrow-linebreak': 'off',
     'operator-linebreak': 'off',
+    'linebreak-style': 'off',
   },
 };
