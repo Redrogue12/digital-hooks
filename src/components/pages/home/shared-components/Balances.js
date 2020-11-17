@@ -7,7 +7,7 @@ import Chart from './Chart';
 function Balances() {
   const balances = useRecoilValueLoadable(balancesSelector);
   return (
-    <Row gutter={[8, 8]} align="middle">
+    <Row gutter={[8, 8]} type="flex">
       <Col xs={24} lg={18}>
         <Typography.Title level={5}>Timeline</Typography.Title>
         <Typography.Paragraph type="secondary">
@@ -16,8 +16,8 @@ function Balances() {
         </Typography.Paragraph>
         <Chart />
       </Col>
-      <Col xs={24} lg={6}>
-        <div className="bg-gray-200 rounded-lg p-4">
+      <Col xs={24} lg={6} className="bg-gray-200 rounded-lg">
+        <div className="p-4">
           <Typography.Title level={5}>Balances</Typography.Title>
           <Typography.Paragraph type="secondary">
             Duis venenatis mauris sed purus convallis maximus.

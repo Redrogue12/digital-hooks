@@ -6,8 +6,6 @@ import { businessAtom } from '../../../store/Atoms';
 function Header() {
   const business = useRecoilValue(businessAtom);
 
-  console.log(business);
-
   return (
     <PageHeader
       className="mb-4 px-0"
