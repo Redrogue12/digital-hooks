@@ -27,5 +27,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'global-require': 'off',
     'implicit-arrow-linebreak': 'off',
+    'operator-linebreak': 'off',
   },
 };

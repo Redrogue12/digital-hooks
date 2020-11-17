@@ -10,7 +10,6 @@ function Chart() {
 
   useEffect(() => {
     if (payouts.state === 'hasValue') {
-      console.log(payouts.contents.data.data.results);
       const dataset = _.map(
         _.orderBy(payouts.contents.data.data.results, ['arrivalDate'], ['asc']),
         (payout) => ({

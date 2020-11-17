@@ -6,7 +6,6 @@ import Chart from './Chart';
 
 function Balances() {
   const balances = useRecoilValueLoadable(balancesSelector);
-  console.log(balances);
   return (
     <Row gutter={[8, 8]} align="middle">
       <Col xs={24} lg={18}>
@@ -23,9 +22,22 @@ function Balances() {
           <Typography.Paragraph type="secondary">
             Duis venenatis mauris sed purus convallis maximus.
           </Typography.Paragraph>
-          <Statistic title="Status" value="Pending" />
-          <Statistic title="Price" prefix="$" value={568.08} />
-          <Statistic title="Balance" prefix="$" value={3345.08} />
+          <Statistic
+            title="Total Balance"
+            prefix="$"
+            value={
+              balances.state === 'hasValue' &&
+              (balances.contents.data.data.amount * -1).toLocaleString()
+            }
+          />
+          <Statistic
+            title="In Transit"
+            prefix="$"
+            value={
+              balances.state === 'hasValue' &&
+              (balances.contents.data.data.amount * -1).toLocaleString()
+            }
+          />
         </div>
       </Col>
     </Row>

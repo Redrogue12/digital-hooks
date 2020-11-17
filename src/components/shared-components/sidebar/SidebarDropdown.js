@@ -21,8 +21,6 @@ function SidebarDropdown() {
     }
   }, [state]);
 
-  console.log(businesses);
-
   return (
     <div className="p-4 w-full bg-gray-900 h-16">
       <Dropdown
