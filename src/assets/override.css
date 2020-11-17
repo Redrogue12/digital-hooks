@@ -1,0 +1,9 @@
+/* Override base SVG style to work with Ant Design */
+svg {
+    vertical-align: initial;
+}
+
+.ant-table-row-expand-icon {
+    float: none;
+    margin: auto;
+}
