@@ -24,7 +24,7 @@ function Sidebar() {
         className="h-full border-0"
       >
         <SidebarDropdown />
-        <Menu.ItemGroup title="Payouts">
+        <Menu.ItemGroup title="Payments">
           <Menu.Item key="stripe" icon={<CreditCardOutlined />}>
             Stripe
           </Menu.Item>
