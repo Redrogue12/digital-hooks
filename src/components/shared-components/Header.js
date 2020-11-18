@@ -14,7 +14,7 @@ function Header() {
     >
       <img alt="Store Logo" className="h-6" src={Logo} />
       <Button
-        className="flex items-center justify-center text-white hover:text-gray-500 transition duration-500 ease-in-out "
+        className="flex items-center justify-center text-green-700 hover:text-green-900 transition duration-500 ease-in-out "
         type="text"
         shape="circle"
         onClick={() => setCollapsed(!collapsed)}
