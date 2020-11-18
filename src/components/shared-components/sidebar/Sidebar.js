@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Button } from 'antd';
 import { CreditCardOutlined, createFromIconfontCN } from '@ant-design/icons';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { collapseAtom } from './store/Atoms';
 import SidebarDropdown from './SidebarDropdown';
 
@@ -10,7 +10,7 @@ const IconFont = createFromIconfontCN({
 });
 
 function Sidebar() {
-  const collapsed = useRecoilValue(collapseAtom);
+  const [collapsed, setCollapsed] = useRecoilState(collapseAtom);
 
   return (
     <Layout.Sider
@@ -22,11 +22,7 @@ function Sidebar() {
       collapsed={collapsed}
       width={200}
     >
-      <Menu
-        mode="vertical"
-        defaultSelectedKeys="stripe"
-        className="h-full border-0"
-      >
+      <Menu mode="vertical" defaultSelectedKeys="stripe" className="border-0">
         <SidebarDropdown />
         <Menu.ItemGroup title="Payments">
           <Menu.Item key="stripe" icon={<IconFont type="icon-ccstripe" />}>
@@ -67,6 +63,9 @@ function Sidebar() {
           </Menu.Item>
         </Menu.ItemGroup>
       </Menu>
+      <Button type="primary" onClick={() => setCollapsed(true)}>
+        Primary Button
+      </Button>
     </Layout.Sider>
   );
 }

@@ -6,15 +6,16 @@ import Chart from './Chart';
 
 function Balances() {
   const balances = useRecoilValueLoadable(balancesSelector);
-  console.log(balances);
   return (
-    <Row gutter={[8, 8]} type="flex">
+    <Row gutter={20} type="flex" className="mb-4">
       <Col xs={24} lg={18}>
-        <Typography.Title level={5}>Payouts Timeline</Typography.Title>
-        <Chart />
+        <div className="p-4 shadow bg-gray-100 rounded-lg">
+          <Typography.Title level={5}>Payouts Timeline</Typography.Title>
+          <Chart />
+        </div>
       </Col>
-      <Col xs={24} lg={6} className="bg-gray-200 rounded-lg">
-        <div className="p-4">
+      <Col xs={24} lg={6} className="flex">
+        <div className="flex-grow p-4 shadow bg-gray-100 rounded-lg mt-4 md:mt-0">
           <Typography.Title level={5}>Balance</Typography.Title>
           <Typography.Paragraph type="secondary">
             Available to pay out

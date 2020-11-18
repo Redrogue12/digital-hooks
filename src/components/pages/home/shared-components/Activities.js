@@ -1,11 +1,14 @@
 import React from 'react';
-import { useRecoilValueLoadable } from 'recoil';
+import { useRecoilValueLoadable, useRecoilState } from 'recoil';
 import _ from 'lodash';
-import { Table, Tag, Typography } from 'antd';
+import { Button, Table, Tag, Typography } from 'antd';
 import { payoutsSelector } from '../store/Selectors';
+import { rowsAtom, pageAtom } from '../store/Atoms';
 
 function Activities() {
   const payouts = useRecoilValueLoadable(payoutsSelector);
+  const [rows, setRows] = useRecoilState(rowsAtom);
+  const [page, setPage] = useRecoilState(pageAtom);
 
   function mapPayouts(data) {
     return _.map(data, (p) => ({
@@ -21,12 +24,33 @@ function Activities() {
   return (
     <>
       <Typography.Title level={5}>Payouts Schedule</Typography.Title>
-      <Typography.Paragraph type="secondary">Deposits reflected on bank account{' '}
+      <Typography.Paragraph type="secondary">
+        Deposits reflected on bank account{' '}
       </Typography.Paragraph>
       <Table
         size="small"
         bordered
         footer={() => 'Footer'}
+        pagination={{
+          showSizeChanger: true,
+          onShowSizeChange: (current, pageSize) => {
+            setPage(current);
+            setRows(pageSize);
+          },
+          onChange: (p, s) => {
+            console.log(p, s);
+          },
+          current: page,
+          pageSize: rows,
+          size: 'small',
+          pageSizeOptions: [10, 15, 20, 25],
+          showTotal: (total, range) => (
+            <div className="text-xs">
+              Showing {total} of {range}
+            </div>
+          ),
+          showLessItems: false,
+        }}
         columns={[
           {
             title: 'Amount',
