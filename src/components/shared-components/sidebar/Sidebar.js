@@ -28,14 +28,20 @@ function Sidebar() {
           <Menu.Item key="stripe" icon={<CreditCardOutlined />}>
             Stripe
           </Menu.Item>
-          <Menu.Item key="paypal" icon={<CreditCardOutlined />}>
+          <Menu.Item key="paypal" icon={<CreditCardOutlined />} disabled>
             Paypal
           </Menu.Item>
           <Menu.Item key="ath-movil" icon={<CreditCardOutlined />} disabled>
-            ATH Movíl
+            ATH Móvil (soon)
           </Menu.Item>
         </Menu.ItemGroup>
-        <Menu.ItemGroup title="Settings" />
+        <Menu.ItemGroup title="Setup">
+          <Menu.Item key="settings-store" icon={<CreditCardOutlined />} disabled>
+            Store
+          </Menu.Item>
+          <Menu.Item key="settings-options" icon={<CreditCardOutlined />} disabled>Options</Menu.Item>
+          <Menu.Item key="settings-hours" icon={<CreditCardOutlined />} disabled>Hours</Menu.Item>
+        </Menu.ItemGroup>
       </Menu>
     </Layout.Sider>
   );

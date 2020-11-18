@@ -9,11 +9,7 @@ function Balances() {
   return (
     <Row gutter={[8, 8]} type="flex">
       <Col xs={24} lg={18}>
-        <Typography.Title level={5}>Timeline</Typography.Title>
-        <Typography.Paragraph type="secondary">
-          Duis venenatis mauris sed purus convallis maximus. Phasellus ac justo
-          suscipit.
-        </Typography.Paragraph>
+        <Typography.Title level={5}>Payouts Timeline</Typography.Title>
         <Chart />
       </Col>
       <Col xs={24} lg={6} className="bg-gray-200 rounded-lg">

@@ -27,7 +27,7 @@ function Chart() {
         data={{
           datasets: [
             {
-              label: 'Payouts',
+              label: 'Payout',
               fill: false,
               borderColor: '#48bb78',
               borderWidth: 2,

@@ -20,8 +20,8 @@ function Activities() {
 
   return (
     <>
-      <Typography.Title level={5}>Payouts</Typography.Title>
-      <Typography.Paragraph type="secondary">Deposits should be reflected on bank account{' '}
+      <Typography.Title level={5}>Payouts Schedule</Typography.Title>
+      <Typography.Paragraph type="secondary">Deposits reflected on bank account{' '}
       </Typography.Paragraph>
       <Table
         size="small"
