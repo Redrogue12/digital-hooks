@@ -10,7 +10,7 @@ export const businessesSelector = selector({
         method: 'get',
         url: 'https://lhf.azure-api.net/admin/businesses',
         headers: {
-          'Ocp-Apim-Subscription-Key': 'f0e4cc3513d94a85a1f1416bf0ee6852',
+          'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
         },
       };
 
