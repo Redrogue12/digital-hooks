@@ -14,7 +14,7 @@ export const payoutsSelector = selector({
         method: 'get',
         url: 'https://lhf.azure-api.net/admin/payouts/0/10/6K',
         headers: {
-          'Ocp-Apim-Subscription-Key': 'f0e4cc3513d94a85a1f1416bf0ee6852',
+          'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
           Authorization: `Bearer ${token.accessToken}`,
         },
       };
@@ -37,7 +37,7 @@ export const balancesSelector = selector({
         method: 'get',
         url: 'https://lhf.azure-api.net/admin/balance/6K',
         headers: {
-          'Ocp-Apim-Subscription-Key': 'f0e4cc3513d94a85a1f1416bf0ee6852',
+          'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
           Authorization: `Bearer ${token.accessToken}`,
         },
       };
