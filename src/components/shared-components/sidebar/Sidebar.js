@@ -1,9 +1,13 @@
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import { CreditCardOutlined } from '@ant-design/icons';
+import { CreditCardOutlined, createFromIconfontCN } from '@ant-design/icons';
 import { useRecoilValue } from 'recoil';
 import { collapseAtom } from './store/Atoms';
 import SidebarDropdown from './SidebarDropdown';
+
+const IconFont = createFromIconfontCN({
+  scriptUrl: ['//at.alicdn.com/t/font_2202999_l9anz3ql6n.js'],
+});
 
 function Sidebar() {
   const collapsed = useRecoilValue(collapseAtom);
@@ -25,10 +29,14 @@ function Sidebar() {
       >
         <SidebarDropdown />
         <Menu.ItemGroup title="Payments">
-          <Menu.Item key="stripe" icon={<CreditCardOutlined />}>
+          <Menu.Item key="stripe" icon={<IconFont type="icon-ccstripe" />}>
             Stripe
           </Menu.Item>
-          <Menu.Item key="paypal" icon={<CreditCardOutlined />} disabled>
+          <Menu.Item
+            key="paypal"
+            icon={<IconFont type="icon-paypal" />}
+            disabled
+          >
             Paypal
           </Menu.Item>
           <Menu.Item key="ath-movil" icon={<CreditCardOutlined />} disabled>
@@ -36,11 +44,27 @@ function Sidebar() {
           </Menu.Item>
         </Menu.ItemGroup>
         <Menu.ItemGroup title="Setup">
-          <Menu.Item key="settings-store" icon={<CreditCardOutlined />} disabled>
+          <Menu.Item
+            key="settings-store"
+            icon={<CreditCardOutlined />}
+            disabled
+          >
             Store
           </Menu.Item>
-          <Menu.Item key="settings-options" icon={<CreditCardOutlined />} disabled>Options</Menu.Item>
-          <Menu.Item key="settings-hours" icon={<CreditCardOutlined />} disabled>Hours</Menu.Item>
+          <Menu.Item
+            key="settings-options"
+            icon={<CreditCardOutlined />}
+            disabled
+          >
+            Options
+          </Menu.Item>
+          <Menu.Item
+            key="settings-hours"
+            icon={<CreditCardOutlined />}
+            disabled
+          >
+            Hours
+          </Menu.Item>
         </Menu.ItemGroup>
       </Menu>
     </Layout.Sider>
