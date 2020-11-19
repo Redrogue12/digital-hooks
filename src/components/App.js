@@ -32,7 +32,7 @@ function App() {
       <Sidebar />
       <Layout>
         <Header />
-        <Layout.Content className="bg-white overflow-auto mx-4 p-4 scrollbar-thin">
+        <Layout.Content className="bg-white overflow-auto mx-4 pl-4 pr-2 scrollbar-thin">
           <Home />
         </Layout.Content>
         <Footer />

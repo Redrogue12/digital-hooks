@@ -22,50 +22,62 @@ function Sidebar() {
       collapsed={collapsed}
       width={200}
     >
-      <Menu mode="vertical" defaultSelectedKeys="stripe" className="border-0">
+      <div className="flex flex-col h-screen overflow-hidden">
         <SidebarDropdown />
-        <Menu.ItemGroup title="Payments">
-          <Menu.Item key="stripe" icon={<IconFont type="icon-ccstripe" />}>
-            Stripe
-          </Menu.Item>
-          <Menu.Item
-            key="paypal"
-            icon={<IconFont type="icon-paypal" />}
-            disabled
+        <Menu
+          mode="vertical"
+          defaultSelectedKeys="stripe"
+          className="border-0 flex-grow overflow-auto scrollbar-thin"
+        >
+          <Menu.ItemGroup title="Payments">
+            <Menu.Item key="stripe" icon={<IconFont type="icon-ccstripe" />}>
+              Stripe
+            </Menu.Item>
+            <Menu.Item
+              key="paypal"
+              icon={<IconFont type="icon-paypal" />}
+              disabled
+            >
+              Paypal
+            </Menu.Item>
+            <Menu.Item key="ath-movil" icon={<CreditCardOutlined />} disabled>
+              ATH Móvil (soon)
+            </Menu.Item>
+          </Menu.ItemGroup>
+          <Menu.ItemGroup title="Setup">
+            <Menu.Item
+              key="settings-store"
+              icon={<CreditCardOutlined />}
+              disabled
+            >
+              Store
+            </Menu.Item>
+            <Menu.Item
+              key="settings-options"
+              icon={<CreditCardOutlined />}
+              disabled
+            >
+              Options
+            </Menu.Item>
+            <Menu.Item
+              key="settings-hours"
+              icon={<CreditCardOutlined />}
+              disabled
+            >
+              Hours
+            </Menu.Item>
+          </Menu.ItemGroup>
+        </Menu>
+        <div className="border-0 p-4 bg-gray-200">
+          <Button
+            shape="circle"
+            type="primary"
+            onClick={() => setCollapsed(true)}
           >
-            Paypal
-          </Menu.Item>
-          <Menu.Item key="ath-movil" icon={<CreditCardOutlined />} disabled>
-            ATH Móvil (soon)
-          </Menu.Item>
-        </Menu.ItemGroup>
-        <Menu.ItemGroup title="Setup">
-          <Menu.Item
-            key="settings-store"
-            icon={<CreditCardOutlined />}
-            disabled
-          >
-            Store
-          </Menu.Item>
-          <Menu.Item
-            key="settings-options"
-            icon={<CreditCardOutlined />}
-            disabled
-          >
-            Options
-          </Menu.Item>
-          <Menu.Item
-            key="settings-hours"
-            icon={<CreditCardOutlined />}
-            disabled
-          >
-            Hours
-          </Menu.Item>
-        </Menu.ItemGroup>
-      </Menu>
-      <Button type="primary" onClick={() => setCollapsed(true)}>
-        Primary Button
-      </Button>
+            Primary Button
+          </Button>
+        </div>
+      </div>
     </Layout.Sider>
   );
 }

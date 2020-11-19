@@ -4,7 +4,7 @@ import { HeartOutlined } from '@ant-design/icons';
 
 function Footer() {
   return (
-    <Layout.Footer className="flex justify-center items-center text-xs border-t bg-gray-900 text-gray-500">
+    <Layout.Footer className="flex justify-center items-center text-xs border-t bg-gray-900 text-gray-500 h-16">
       Made with <HeartOutlined className="mx-2" />
       by gopanza ©{new Date().getFullYear()}
     </Layout.Footer>
