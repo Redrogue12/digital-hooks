@@ -10,7 +10,6 @@ export const payoutsSelector = selector({
     const business = get(businessAtom);
     const rows = get(rowsAtom);
     const page = get(pageAtom);
-    console.log(business.id);
     // eslint-disable-next-line no-useless-catch
     try {
       const config = {
@@ -39,6 +38,29 @@ export const balancesSelector = selector({
       const config = {
         method: 'get',
         url: 'https://lhf.azure-api.net/admin/balance/6K',
+        headers: {
+          'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
+          Authorization: `Bearer ${token.accessToken}`,
+        },
+      };
+
+      const response = await axios(config);
+      return await response;
+    } catch (error) {
+      throw error;
+    }
+  },
+});
+
+export const configSelector = selector({
+  key: 'config',
+  get: async ({ get }) => {
+    const token = get(tokenAtom);
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const config = {
+        method: 'get',
+        url: 'https://lhf.azure-api.net/webdev/configuration',
         headers: {
           'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
           Authorization: `Bearer ${token.accessToken}`,
