@@ -19,18 +19,18 @@ stages:
   - job: Build
     continueOnError: false
     steps:
-    - task: YarnInstaller@3
-      inputs:
-        versionSpec: '1.x'
-        checkLatest: true
-    - task: Yarn@3
-      displayName: 'Yarn Install'
-      inputs:
-        arguments: 'install'
-    - task: Yarn@3
-      displayName: 'Yarn Build'
-      inputs:
-        arguments: 'build'
+    # - task: YarnInstaller@3
+    #   inputs:
+    #     versionSpec: '1.x'
+    #     checkLatest: true
+    # - task: Yarn@3
+    #   displayName: 'Yarn Install'
+    #   inputs:
+    #     arguments: 'install'
+    # - task: Yarn@3
+    #   displayName: 'Yarn Build'
+    #   inputs:
+    #     arguments: 'build'
     
     - task: NodeTool@0
       inputs:
