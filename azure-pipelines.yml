@@ -1,0 +1,79 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- dev
+- master
+
+pool:
+  name: 'default'
+
+variables:
+  - group: 'Dev Env Variables'
+
+stages:
+- stage: LHF_Build
+  jobs:
+  - job: Build
+    continueOnError: false
+    steps:
+    - task: YarnInstaller@3
+      inputs:
+        versionSpec: '1.x'
+        checkLatest: true
+    - task: Yarn@3
+      displayName: 'Yarn Install'
+      inputs:
+        arguments: 'install'
+    - task: Yarn@3
+      displayName: 'Yarn Build'
+      inputs:
+        arguments: 'build'
+    
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '10.x'
+        displayName: 'Install Node.js'
+
+    - script: |
+        npm install
+        HTTPS=true npm run build
+        displayName: 'npm install and build'
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive Build'
+      inputs:
+        rootFolderOrFile: 'build'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+        replaceExistingArchive: true
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Build Artifact
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: FilePath
+        TargetPath: '$(System.DefaultWorkingDirectory)'
+
+- stage: LHF_Publish_Dev
+  dependsOn: Build
+  jobs:
+  - deployment: Dev
+    environment: 'dev'
+    strategy:
+      runOnce:
+
+        deploy:
+          steps:
+            - task: AzureRmWebAppDeployment@4
+              inputs:
+                ConnectionType: 'AzureRM'
+                azureSubscription: 'BaseSubscription(1)(0d4d0954-c560-4d2f-a9a9-9f35a4fc9449)'
+                appType: 'webAppLinux'
+                WebAppName: 'lhf-admin'
+                packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+                RuntimeStack: 'NODE|12-lts'
+                StartupCommand: 'pm2 serve /home/site/wwwroot/ --no-daemon --spa'
