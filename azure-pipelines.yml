@@ -11,7 +11,7 @@ pool:
   name: 'default'
 
 variables:
-  - group: 'Dev Env Variables'
+  - group: 'LHF'
 
 stages:
 - stage: LHF_Build
