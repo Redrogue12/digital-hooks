@@ -39,7 +39,7 @@ stages:
 
     - script: |
         npm install
-        HTTPS=true npm run build
+        set HTTPS=true&&npm run build
         displayName: 'npm install and build'
 
     - task: ArchiveFiles@2
