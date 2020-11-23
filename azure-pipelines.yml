@@ -59,7 +59,7 @@ stages:
         TargetPath: '$(System.DefaultWorkingDirectory)'
 
 - stage: LHF_Publish_Dev
-  dependsOn: Build
+  dependsOn: LHF_Build
   jobs:
   - deployment: Dev
     environment: 'dev'
