@@ -35,11 +35,11 @@ stages:
     - task: NodeTool@0
       inputs:
         versionSpec: '10.x'
-        displayName: 'Install Node.js'
+      displayName: 'Install Node.js'
 
     - script: |
         npm install
-        set HTTPS=true&&npm run build
+        npm run build
         displayName: 'npm install and build'
 
     - task: ArchiveFiles@2
