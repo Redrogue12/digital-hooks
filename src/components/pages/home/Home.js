@@ -1,8 +1,7 @@
 import React from 'react';
 import { useRecoilValueLoadable } from 'recoil';
-import Activities from './shared-components/Activities';
 import Header from './shared-components/Header';
-import Balances from './shared-components/Balances';
+import PushNotifications from './shared-components/PushNotifications';
 import { configSelector } from './store/Selectors';
 
 function Home() {
@@ -11,8 +10,7 @@ function Home() {
   return (
     <>
       <Header />
-      <Balances />
-      <Activities />
+      <PushNotifications />
     </>
   );
 }
