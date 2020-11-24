@@ -1,13 +1,12 @@
 import { selector } from 'recoil';
 import axios from 'axios';
-import { businessAtom, tokenAtom } from '../../../store/Atoms';
+import { tokenAtom } from '../../../store/Atoms';
 import { pageAtom, rowsAtom } from './Atoms';
 
 export const payoutsSelector = selector({
   key: 'payouts',
   get: async ({ get }) => {
     const token = get(tokenAtom);
-    const business = get(businessAtom);
     const rows = get(rowsAtom);
     const page = get(pageAtom);
     // eslint-disable-next-line no-useless-catch
@@ -64,6 +63,28 @@ export const configSelector = selector({
         headers: {
           'Ocp-Apim-Subscription-Key': process.env.REACT_APP_API_TOKEN,
           Authorization: `Bearer ${token.accessToken}`,
+        },
+      };
+
+      const response = await axios(config);
+      return await response;
+    } catch (error) {
+      throw error;
+    }
+  },
+});
+
+export const pushNotificationsSelector = selector({
+  key: 'PN',
+  get: async () => {
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const config = {
+        method: 'get',
+        url: `${process.env.REACT_APP_DG_API_URL}pushnotifiactions`,
+        headers: {
+          'Ocp-Apim-Subscription-Key': process.env.REACT_APP_DG_API_KEY,
+          Authorization: `Bearer ${process.env.REACT_APP_DG_AT}`,
         },
       };
 
