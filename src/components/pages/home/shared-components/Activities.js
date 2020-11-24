@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilValueLoadable, useRecoilState } from 'recoil';
 import _ from 'lodash';
-import { Button, Table, Tag, Typography } from 'antd';
+import { Table, Tag, Typography } from 'antd';
 import { payoutsSelector } from '../store/Selectors';
 import { rowsAtom, pageAtom } from '../store/Atoms';
 
