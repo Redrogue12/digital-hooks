@@ -7,5 +7,5 @@ export const rowsAtom = atom({
 
 export const pageAtom = atom({
   key: 'page',
-  default: 1,
+  default: 0,
 });
