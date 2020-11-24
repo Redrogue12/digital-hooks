@@ -17,13 +17,7 @@ function Header() {
         </Tag>
       }
       subTitle={business ? business.locations[0].address1 : null}
-      extra={[
-        <Button key="3">Operation</Button>,
-        <Button key="2">Operation</Button>,
-        <Button key="1" type="primary">
-          Primary
-        </Button>,
-      ]}
+      extra={[]}
     />
   );
 }
