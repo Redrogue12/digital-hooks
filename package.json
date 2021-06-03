@@ -21,7 +21,7 @@
     "react-scripts": "4.0.0",
     "react-use": "^15.3.4",
     "recoil": "^0.1.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^2.0.1"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
